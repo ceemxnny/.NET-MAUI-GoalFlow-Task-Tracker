@@ -14,7 +14,7 @@
                 SemanticProperties.Description="dot net bot in a hovercraft number nine" />
 
             <Label
-                Text="Hello, Colin!!!!"
+                Text="Hello, Colin!!!"
                 Style="{StaticResource Headline}"
                 SemanticProperties.HeadingLevel="Level1" />
 
@@ -26,10 +26,13 @@
 
             <Button
                 x:Name="CounterBtn"
-                Text="Click me" 
+                Text="Enter" 
+                BackgroundColor="{StaticResource PrimaryRed}"
                 SemanticProperties.Hint="Counts the number of times you click"
                 Clicked="OnCounterClicked"
                 HorizontalOptions="Fill" />
+
+
         </VerticalStackLayout>
     </ScrollView>
 

@@ -9,7 +9,7 @@
             InitializeComponent();
         }
 
-        private async void OnCounterClicked(object sender, EventArgs e)
+        private async void OnEnterClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new SecondPage());
         }

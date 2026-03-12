@@ -2,38 +2,38 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="assessment2526.MainPage">
-
-    <ScrollView>
-        <VerticalStackLayout
-            Padding="30,0"
-            Spacing="25">
-            <Image
-                Source="dotnet_bot.png"
-                HeightRequest="185"
-                Aspect="AspectFit"
-                SemanticProperties.Description="dot net bot in a hovercraft number nine" />
-
-            <Label
-                Text="Hello, Colin!!!!"
-                Style="{StaticResource Headline}"
-                SemanticProperties.HeadingLevel="Level1" />
-
-            <Label
-                Text="Welcome to &#10;.NET Multi-platform App UI"
-                Style="{StaticResource SubHeadline}"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I" />
-
-            <Button
-                x:Name="CounterBtn"
-                Text="Enter" 
-                BackgroundColor="{StaticResource PrimaryRed}"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Fill" />
-
-
+<Grid RowDefinitions="*, Auto, Auto, Auto, *" Padding="30" BackgroundColor="{StaticResource PageGrey}">
+        
+        <VerticalStackLayout Grid.Row="1" Spacing="5" HorizontalOptions="Center">
+            <Label Text="GoalFlow" 
+                   TextColor="{StaticResource PrimaryRed}" 
+                   FontSize="48" 
+                   FontAttributes="Italic,Bold" />
+            <Label Text="success is in your hands." 
+                   TextColor="{StaticResource PrimaryRed}" 
+                   FontSize="16" 
+                   HorizontalOptions="Center" />
         </VerticalStackLayout>
-    </ScrollView>
+
+        <Image Grid.Row="2" 
+               Source="goalflowlogo.png" 
+               HeightRequest="150" 
+               Margin="0,40" />
+
+        <Label Grid.Row="3" 
+               Text="Hello Colin, Welcome Back." 
+               TextColor="White" 
+               FontSize="24" 
+               FontAttributes="Bold"
+               HorizontalOptions="Center" 
+               Margin="0,0,0,50"/>
+
+        <Button Grid.Row="4" 
+                Text="Enter" 
+                WidthRequest="220"
+                HeightRequest="60"
+                Clicked="OnEnterClicked" />
+        
+    </Grid>
 
 </ContentPage>

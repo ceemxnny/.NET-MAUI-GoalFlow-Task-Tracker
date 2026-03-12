@@ -9,10 +9,9 @@
             <Style TargetType="Button">
                 <Setter Property="BackgroundColor" Value="{StaticResource PrimaryRed}" />
                 <Setter Property="TextColor" Value="White" />
-                <Setter Property="CornerRadius" Value="10" />
+                <Setter Property="CornerRadius" Value="25" />
             </Style>
-
-
+            
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />

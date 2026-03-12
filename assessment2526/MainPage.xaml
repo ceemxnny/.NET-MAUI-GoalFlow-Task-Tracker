@@ -2,17 +2,25 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="assessment2526.MainPage">
-<Grid RowDefinitions="*, Auto, Auto, Auto, *" Padding="30" BackgroundColor="{StaticResource PageGrey}">
+<Grid RowDefinitions="Auto, Auto, Auto, Auto, *" 
+      Padding="40, 40, 30, 30" 
+      BackgroundColor="{StaticResource PageGrey}">
         
         <VerticalStackLayout Grid.Row="1" Spacing="5" HorizontalOptions="Center">
-            <Label Text="GoalFlow" 
-                   TextColor="{StaticResource PrimaryRed}" 
-                   FontSize="48" 
-                   FontAttributes="Italic,Bold" />
-            <Label Text="success is in your hands." 
-                   TextColor="{StaticResource PrimaryRed}" 
-                   FontSize="16" 
-                   HorizontalOptions="Center" />
+        <Label Text="GoalFlow" 
+                TextColor="{StaticResource PrimaryRed}" 
+                FontSize="48" 
+                FontFamily ="OpenSansSemiboldItalic"
+                FontAttributes="Bold, Italic" 
+                CharacterSpacing="1.5"/>
+
+        <Label Text="success is in your hands." 
+                TextColor="{StaticResource PrimaryRed}" 
+                FontSize="16" 
+                FontAttributes="Italic" 
+                FontFamily ="OpenSansItalic"
+                HorizontalOptions="End"
+                Margin="70,0,0,0" />
         </VerticalStackLayout>
 
         <Image Grid.Row="2" 

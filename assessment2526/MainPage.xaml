@@ -1,10 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="assessment2526.MainPage">
-<Grid RowDefinitions="Auto, Auto, Auto, Auto, *" 
-      Padding="40, 40, 30, 30" 
-      BackgroundColor="{StaticResource PageGrey}">
+             x:Class="assessment2526.MainPage"
+             Title="Home">
+
+
+        <Grid RowDefinitions="Auto, Auto, Auto, Auto, *" 
+        Padding="40, 40, 30, 30" 
+        BackgroundColor="{StaticResource PageGrey}">
         
         <VerticalStackLayout Grid.Row="1" Spacing="5" HorizontalOptions="Center">
         <Image Source="title.png" 

@@ -7,25 +7,19 @@
       BackgroundColor="{StaticResource PageGrey}">
         
         <VerticalStackLayout Grid.Row="1" Spacing="5" HorizontalOptions="Center">
-        <Label Text="GoalFlow" 
-                TextColor="{StaticResource PrimaryRed}" 
-                FontSize="48" 
-                FontFamily ="OpenSansSemiboldItalic"
-                FontAttributes="Bold, Italic" 
-                CharacterSpacing="1.5"/>
+        <Image Source="title.png" 
+           HeightRequest="120" 
+           HorizontalOptions="Center"
+           Margin="0,0,0,5" />
 
-        <Label Text="success is in your hands." 
-                TextColor="{StaticResource PrimaryRed}" 
-                FontSize="16" 
-                FontAttributes="Italic" 
-                FontFamily ="OpenSansItalic"
-                HorizontalOptions="End"
-                Margin="70,0,0,0" />
         </VerticalStackLayout>
 
         <Image Grid.Row="2" 
                Source="goalflowlogo.png" 
-               HeightRequest="150" 
+               HeightRequest="250" 
+               WidthRequest="300"
+               TranslationX="-15"
+               TranslationY="-75"
                Margin="0,40" />
 
         <Label Grid.Row="3" 
@@ -33,13 +27,15 @@
                TextColor="White" 
                FontSize="24" 
                FontAttributes="Bold"
+               TranslationY="-75"
                HorizontalOptions="Center" 
                Margin="0,0,0,50"/>
 
         <Button Grid.Row="4" 
                 Text="Enter" 
-                WidthRequest="220"
-                HeightRequest="60"
+                TranslationY="-75"
+                WidthRequest="300"
+                HeightRequest="80"
                 Clicked="OnEnterClicked" />
         
     </Grid>

@@ -9,7 +9,8 @@
             <Style TargetType="Button">
                 <Setter Property="BackgroundColor" Value="{StaticResource PrimaryRed}" />
                 <Setter Property="TextColor" Value="White" />
-                <Setter Property="CornerRadius" Value="25" />
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="CornerRadius" Value="40" />
             </Style>
             
             <ResourceDictionary.MergedDictionaries>

@@ -3,15 +3,160 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="assessment2526.Dashboard"
              Title="Dashboard"
-             BackgroundColor="{StaticResource PageGrey}">
+             BackgroundColor="#9E9E9E">
 
-    <VerticalStackLayout Spacing="25" Padding="30" VerticalOptions="Center">
-        
-        <Label Text="Welcome to your Dashboard!"
-               FontSize="24"
-               TextColor="Black"
-               HorizontalOptions="Center" />
+    <ScrollView VerticalScrollBarVisibility="Never">
+        <VerticalStackLayout Spacing="20"
+                Padding="20, 40, 20, 20">
 
+            <Frame BackgroundColor="White"
+                    CornerRadius="30"
+                    HasShadow="True"
+                    Padding="25"
+                    BorderColor="Transparent">
+                <Grid ColumnDefinitions="*, *">
+                    <Label Grid.Column="0"
+                           Text="Steps Taken&#10;Today:"
+                           TextColor="Black"
+                           FontSize="20"
+                           VerticalOptions="Center"
+                           HorizontalTextAlignment="Center"
+                           FontFamily="monospace"/>
 
-    </VerticalStackLayout>
+                    <Label Grid.Column="1"
+                           Text="4,500/10,000"
+                           TextColor="#B22222"
+                           FontSize="26"
+                           FontAttributes="Bold"
+                           VerticalOptions="Center"
+                           HorizontalTextAlignment="Center"
+                           FontFamily="monospace"/>
+                </Grid>
+            </Frame>
+
+            <Frame BackgroundColor="White"
+                    CornerRadius="44"
+                    HasShadow="True"
+                    Padding="20"
+                    BorderColor="Transparent">
+                <VerticalStackLayout Spacing="15">
+
+                    <Label Text="Daily Tasks:"
+                           TextColor="Black"
+                           FontSize="22"
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center"
+                           FontFamily="monospace"
+                           Margin="0,0,0,10"/>
+
+                    <Grid ColumnDefinitions="*, Auto"
+                            ColumnSpacing="15">
+                        <Frame Grid.Column="0"
+                                BackgroundColor="#B87373"
+                                CornerRadius="15"
+                                Padding="15,10"
+                                BorderColor="Black">
+                            <Label Text="Hit arms at the gym"
+                                    TextColor="Black"
+                                    FontAttributes="Bold"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    FontFamily="monospace"/>
+                        </Frame>
+                        <Frame Grid.Column="1"
+                                WidthRequest="45"
+                                HeightRequest="45"
+                                CornerRadius="10"
+                                BorderColor="#B87373"
+                                BackgroundColor="#E0E0E0"
+                                Padding="0"/>
+                    </Grid>
+
+                    <Grid ColumnDefinitions="*, Auto"
+                            ColumnSpacing="15">
+                            
+                        <Frame Grid.Column="0"
+                                BackgroundColor="#B87373"
+                                CornerRadius="15"
+                                Padding="15,10"
+                                BorderColor="Black">
+                                
+                            <Label Text="Finish off code project"
+                                    TextColor="Black"
+                                    FontAttributes="Bold"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    FontFamily="monospace"/>
+                        </Frame>
+                        <Frame Grid.Column="1"
+                                WidthRequest="45"
+                                HeightRequest="45"
+                                CornerRadius="10"
+                                BorderColor="#B87373"
+                                BackgroundColor="White"
+                                Padding="0">
+                            <Label Text="X"
+                                    TextColor="Black"
+                                    FontSize="30"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"/>
+                        </Frame>
+                    </Grid>
+
+                    <Grid ColumnDefinitions="*, Auto"
+                            ColumnSpacing="15">
+                        <Frame Grid.Column="0"
+                                BackgroundColor="#B87373"
+                                CornerRadius="15"
+                                Padding="15,10"
+                                BorderColor="Black">
+                            <Label Text="Buy cooking ingredients"
+                                    TextColor="Black"
+                                    FontAttributes="Bold"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="Center"
+                                    FontFamily="Fredoka"/>
+                        </Frame>
+                        <Frame Grid.Column="1"
+                                WidthRequest="45"
+                                HeightRequest="45"
+                                CornerRadius="10"
+                                BorderColor="#B87373"
+                                BackgroundColor="#E0E0E0"
+                                Padding="0"/>
+                    </Grid>
+
+                    <Frame BackgroundColor="#B87373"
+                            CornerRadius="20"
+                            Padding="20,10"
+                            BorderColor="Black"
+                            HorizontalOptions="Center"
+                            Margin="0,15,0,0">
+                        <Label Text="Add Task  +"
+                                TextColor="Black"
+                                FontAttributes="Bold"
+                                FontSize="20"
+                                HorizontalOptions="Center"
+                                FontFamily="Fredoka"/>
+                    </Frame>
+
+                </VerticalStackLayout>
+            </Frame>
+
+            <Frame CornerRadius="30"
+                    Padding="0"
+                    IsClippedToBounds="True"
+                    HeightRequest="150"
+                    HasShadow="True"
+                    BorderColor="Transparent"
+                    BackgroundColor="LightGray">
+                <Label Text=" map to be added here"
+                        TextColor="DarkGray"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"/>
+            </Frame>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
 </ContentPage>

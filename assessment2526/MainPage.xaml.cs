@@ -11,12 +11,11 @@
 
         private async void OnEnterClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new SecondPage());
+             await Navigation.PushAsync(new Dashboard());       
         }
     private async void OnBackClicked(object sender, EventArgs e)
     {
-    // This "pops" the current page off the stack to go back
-    await Navigation.PopAsync();
+        await Navigation.PopAsync();
     }
 
     }

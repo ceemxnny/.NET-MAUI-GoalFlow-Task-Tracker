@@ -49,13 +49,13 @@
 		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
 
 		<!-- Images -->
-		<MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
-		<MauiImage Include="Resources\Images\home.svg" BaseSize="24,24" />
-		<MauiImage Include="Resources\Images\dashboard.svg" BaseSize="24,24" />
-		<MauiImage Include="Resources\Images\journal.svg" BaseSize="24,24" />
-		<MauiImage Include="Resources\Images\profile.svg" BaseSize="24,24" />
-		<MauiImage Include="Resources\Images\settings.svg" BaseSize="24,24" />
-				
+		<MauiImage Include="Resources\Images\*" />
+		<MauiImage Update="Resources\Images\home.svg" BaseSize="24,24" />
+		<MauiImage Update="Resources\Images\dashboard.svg" BaseSize="24,24" />
+		<MauiImage Update="Resources\Images\journal.svg" BaseSize="24,24" />
+		<MauiImage Update="Resources\Images\profile.svg" BaseSize="24,24" />
+		<MauiImage Update="Resources\Images\settings.svg" BaseSize="24,24" />
+						
 		<!-- Custom Fonts -->
 		<MauiFont Include="Resources\Fonts\*" />
 

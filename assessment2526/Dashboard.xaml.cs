@@ -1,8 +1,8 @@
 namespace assessment2526;
 
-public partial class SecondPage : ContentPage
+public partial class Dashboard : ContentPage
 {
-	public SecondPage()
+	public Dashboard()
 	{
 		InitializeComponent();
 	}

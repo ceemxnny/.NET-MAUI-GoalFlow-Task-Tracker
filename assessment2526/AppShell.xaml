@@ -23,15 +23,15 @@
         </Tab>
 
         <Tab Title="Journal" Icon="journal.png">
-            <ShellContent ContentTemplate="{DataTemplate local:Dashboard}" />
+            <ShellContent ContentTemplate="{DataTemplate local:JournalPage}" />
         </Tab>
 
         <Tab Title="Profile" Icon="profile.png">
-            <ShellContent ContentTemplate="{DataTemplate local:Dashboard}" />
+            <ShellContent ContentTemplate="{DataTemplate local:ProfilePage}" />
         </Tab>
 
         <Tab Title="Settings" Icon="settings.png">
-            <ShellContent ContentTemplate="{DataTemplate local:Dashboard}" />
+            <ShellContent ContentTemplate="{DataTemplate local:Settings}" />
         </Tab>
     </TabBar>
 

@@ -15,6 +15,9 @@ namespace assessment2526
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
+            builder.Services.AddSingleton<Dashboard>();
+            builder.Services.AddSingleton<ViewModels.DashboardViewModel>(); 
+
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif

@@ -2,10 +2,20 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodels="clr-namespace:assessment2526.ViewModels"
+             xmlns:models="clr-namespace:assessment2526.Models"
+             xmlns:converters="clr-namespace:assessment2526.Converters"
              x:DataType="viewmodels:DashboardViewModel"
              x:Class="assessment2526.Dashboard"
              Title="Dashboard"
              BackgroundColor="#9E9E9E">
+
+             <ContentPage.Resources>
+                <ResourceDictionary>
+                    <converters:BoolToColorConverter x:Key="BoolToColorConverter" />
+                    <converters:BoolToTextConverter x:Key="BoolToTextConverter" />
+                </ResourceDictionary>
+            </ContentPage.Resources>
+             
 
     <ScrollView VerticalScrollBarVisibility="Never">
         <VerticalStackLayout Spacing="20"
@@ -51,82 +61,41 @@
                            FontFamily="monospace"
                            Margin="0,0,0,10"/>
 
-                    <Grid ColumnDefinitions="*, Auto"
-                            ColumnSpacing="15">
-                        <Frame Grid.Column="0"
-                                BackgroundColor="#B87373"
-                                CornerRadius="15"
-                                Padding="15,10"
-                                BorderColor="Black">
-                            <Label Text="Hit arms at the gym"
-                                    TextColor="Black"
-                                    FontAttributes="Bold"
-                                    HorizontalOptions="Center"
-                                    VerticalOptions="Center"
-                                    FontFamily="monospace"/>
-                        </Frame>
-                        <Frame Grid.Column="1"
-                                WidthRequest="45"
-                                HeightRequest="45"
-                                CornerRadius="10"
-                                BorderColor="#B87373"
-                                BackgroundColor="#E0E0E0"
-                                Padding="0"/>
-                    </Grid>
+                    <CollectionView ItemsSource="{Binding DailyTasks}" Margin="0,10,0,0">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="models:GoalItem">
 
-                    <Grid ColumnDefinitions="*, Auto"
-                            ColumnSpacing="15">
-                            
-                        <Frame Grid.Column="0"
-                                BackgroundColor="#B87373"
-                                CornerRadius="15"
-                                Padding="15,10"
-                                BorderColor="Black">
+                            <SwipeView>
+                                    
+                                    <SwipeView.RightItems>
+                                        <SwipeItems>
+                                            <SwipeItem Text="Delete" 
+                                                    BackgroundColor="Red" 
+                                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:DashboardViewModel}}, Path=DeleteTaskCommand}" 
+                                                    CommandParameter="{Binding .}" />
+                                        </SwipeItems>
+                                    </SwipeView.RightItems>
+
+                            <Grid ColumnDefinitions="*, Auto" ColumnSpacing="15" Margin="0,0,0,15">
                                 
-                            <Label Text="Finish off code project"
-                                    TextColor="Black"
-                                    FontAttributes="Bold"
-                                    HorizontalOptions="Center"
-                                    VerticalOptions="Center"
-                                    FontFamily="monospace"/>
-                        </Frame>
-                        <Frame Grid.Column="1"
-                                WidthRequest="45"
-                                HeightRequest="45"
-                                CornerRadius="10"
-                                BorderColor="#B87373"
-                                BackgroundColor="White"
-                                Padding="0">
-                            <Label Text="X"
-                                    TextColor="Black"
-                                    FontSize="30"
-                                    HorizontalOptions="Center"
-                                    VerticalOptions="Center"/>
-                        </Frame>
-                    </Grid>
+                                <Frame Grid.Column="0" BackgroundColor="#B87373" CornerRadius="15" Padding="15,10" BorderColor="Black">
+                                    <Label Text="{Binding Title}" TextColor="Black" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" FontFamily="monospace"/>
+                                </Frame>
 
-                    <Grid ColumnDefinitions="*, Auto"
-                            ColumnSpacing="15">
-                        <Frame Grid.Column="0"
-                                BackgroundColor="#B87373"
-                                CornerRadius="15"
-                                Padding="15,10"
-                                BorderColor="Black">
-                            <Label Text="Buy cooking ingredients"
-                                    TextColor="Black"
-                                    FontAttributes="Bold"
-                                    HorizontalOptions="Center"
-                                    VerticalOptions="Center"
-                                    FontFamily="Fredoka"/>
-                        </Frame>
-                        <Frame Grid.Column="1"
-                                WidthRequest="45"
-                                HeightRequest="45"
-                                CornerRadius="10"
-                                BorderColor="#B87373"
-                                BackgroundColor="#E0E0E0"
-                                Padding="0"/>
-                    </Grid>
+                                <Frame Grid.Column="1" WidthRequest="45" HeightRequest="45" CornerRadius="10" BorderColor="#B87373"
+                                    BackgroundColor="{Binding IsCompleted, Converter={StaticResource BoolToColorConverter}}" Padding="0">
+                                    
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:DashboardViewModel}}, Path=ToggleTaskCommand}" CommandParameter="{Binding .}" />
+                                    </Frame.GestureRecognizers>
+
+                                    <Label Text="{Binding IsCompleted, Converter={StaticResource BoolToTextConverter}}" TextColor="Black" FontSize="20" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                </Frame>
+                            </Grid>
+                            </SwipeView>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
 
                     <Frame BackgroundColor="#B87373"
                             CornerRadius="20"
@@ -134,6 +103,11 @@
                             BorderColor="Black"
                             HorizontalOptions="Center"
                             Margin="0,15,0,0">
+
+                            <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding AddTaskCommand}" />
+                            </Frame.GestureRecognizers>
+
                         <Label Text="Add Task  +"
                                 TextColor="Black"
                                 FontAttributes="Bold"
@@ -141,6 +115,11 @@
                                 HorizontalOptions="Center"
                                 FontFamily="Fredoka"/>
                     </Frame>
+
+                    <Label Text=""
+                        TextColor="DarkGray"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"/>
 
                 </VerticalStackLayout>
             </Frame>

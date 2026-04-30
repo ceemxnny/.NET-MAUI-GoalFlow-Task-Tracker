@@ -4,6 +4,7 @@
              xmlns:viewmodels="clr-namespace:assessment2526.ViewModels"
              xmlns:models="clr-namespace:assessment2526.Models"
              xmlns:converters="clr-namespace:assessment2526.Converters"
+             xmlns:maps="clr-namespace:Microsoft.Maui.Controls.Maps;assembly=Microsoft.Maui.Controls.Maps"
              x:DataType="viewmodels:DashboardViewModel"
              x:Class="assessment2526.Dashboard"
              Title="Dashboard"
@@ -135,17 +136,16 @@
                 </VerticalStackLayout>
             </Frame>
 
-            <Frame CornerRadius="30"
-                    Padding="0"
-                    IsClippedToBounds="True"
-                    HeightRequest="150"
-                    HasShadow="True"
-                    BorderColor="Transparent"
-                    BackgroundColor="LightGray">
-                <Label Text=" map to be added here"
-                        TextColor="DarkGray"
-                        HorizontalOptions="Center"
-                        VerticalOptions="Center"/>
+            <Frame CornerRadius="30" 
+                Padding="0" 
+                HeightRequest="150" 
+                HasShadow="True" 
+                BorderColor="Transparent" 
+                BackgroundColor="LightGray">
+                
+                <maps:Map x:Name="DashboardMap" 
+                        IsZoomEnabled="False" 
+                        IsScrollEnabled="False" />
             </Frame>
 
         </VerticalStackLayout>

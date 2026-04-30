@@ -60,6 +60,11 @@ public class DashboardViewModel : BaseViewModel
             var index = DailyTasks.IndexOf(task);
             DailyTasks.RemoveAt(index);
             DailyTasks.Insert(index, task);
+
+            if (HapticFeedback.Default.IsSupported)
+            {
+                HapticFeedback.Default.Perform(HapticFeedbackType.Click);
+            }
         }
     }
     private async void AddNewTask()

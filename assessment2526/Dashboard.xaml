@@ -26,24 +26,35 @@
                     HasShadow="True"
                     Padding="25"
                     BorderColor="Transparent">
-                <Grid ColumnDefinitions="*, *">
-                    <Label Grid.Column="0"
-                           Text="Steps Taken&#10;Today:"
-                           TextColor="Black"
-                           FontSize="20"
-                           VerticalOptions="Center"
-                           HorizontalTextAlignment="Center"
-                           FontFamily="monospace"/>
 
-                    <Label Grid.Column="1"
-                           Text="{Binding StepCountDisplay}"
-                           TextColor="#B22222"
-                           FontSize="26"
-                           FontAttributes="Bold"
-                           VerticalOptions="Center"
-                           HorizontalTextAlignment="Center"
-                           FontFamily="monospace"/>
-                </Grid>
+
+                <VerticalStackLayout Spacing="10" Padding="10">
+
+                    <Label Text="Steps Taken Today:" 
+                        TextColor="Black" 
+                        FontSize="20" 
+                        HorizontalTextAlignment="Center" 
+                        FontFamily="monospace"/>
+                    
+                    <Label Text="{Binding StepCountDisplay}" 
+                        TextColor="#B22222" 
+                        FontSize="32" 
+                        FontAttributes="Bold" 
+                        HorizontalTextAlignment="Center" 
+                        FontFamily="monospace"/>
+                    
+                    <Button Text="{Binding WalkButtonText}" 
+                            Command="{Binding ToggleTrackingCommand}" 
+                            BackgroundColor="#B87373" 
+                            TextColor="White" 
+                            CornerRadius="10" 
+                            FontAttributes="Bold" 
+                            HeightRequest="45" 
+                            WidthRequest="200" 
+                            HorizontalOptions="Center"
+                            Margin="0,10,0,0"/>
+
+                </VerticalStackLayout>
             </Frame>
 
             <Frame BackgroundColor="White"

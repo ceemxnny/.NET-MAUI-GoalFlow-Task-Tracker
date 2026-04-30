@@ -1,18 +1,21 @@
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using assessment2526.Models;
-
 namespace assessment2526.ViewModels;
+using Microsoft.Maui.Devices.Sensors;
+
 
 public class DashboardViewModel : BaseViewModel
 {
+    
     public ObservableCollection<GoalItem> DailyTasks { get; set; }
-
     public ICommand ToggleTaskCommand { get; }
     public ICommand AddTaskCommand { get; }
     public ICommand DeleteTaskCommand { get; }
+    public ICommand ToggleTrackingCommand { get; }
 
-    private string _stepCountDisplay = "4,500/10,000";
+    private int _currentSteps = 0;
+    private string _stepCountDisplay;
     public string StepCountDisplay
     {
         get => _stepCountDisplay;
@@ -22,18 +25,32 @@ public class DashboardViewModel : BaseViewModel
             OnPropertyChanged(); 
         }
     }
+
+    private string _walkButtonText = "Start Walk";
+    public string WalkButtonText
+    {
+        get => _walkButtonText;
+        set 
+        { 
+            _walkButtonText = value; 
+            OnPropertyChanged(); 
+        }   
+    }
+
     public DashboardViewModel()
     {
         DailyTasks = new ObservableCollection<GoalItem>
         {
             new GoalItem { Title = "Hit arms at the gym", IsCompleted = false },
-            new GoalItem { Title = "Finish off code project", IsCompleted = true },
+            new GoalItem { Title = "Finish off code project", IsCompleted = false },
             new GoalItem { Title = "Buy cooking ingredients", IsCompleted = false }
         };
 
         ToggleTaskCommand = new Command<GoalItem>(ToggleTask);
         AddTaskCommand = new Command(AddNewTask);
         DeleteTaskCommand = new Command<GoalItem>(DeleteTask);
+        StepCountDisplay = "0/10,000";
+        ToggleTrackingCommand = new Command(ToggleAccelerometer);
     }
     private void ToggleTask(GoalItem task)
     {
@@ -61,5 +78,44 @@ public class DashboardViewModel : BaseViewModel
         DailyTasks.Remove(task); 
     }
 }
+
+    private void ToggleAccelerometer()
+        {
+            if (Accelerometer.Default.IsSupported)
+            {
+                if (!Accelerometer.Default.IsMonitoring)
+                {
+                    Accelerometer.Default.ReadingChanged += Accelerometer_ReadingChanged;
+                    Accelerometer.Default.Start(SensorSpeed.UI);
+                    WalkButtonText = "Walking";
+                }
+                else
+                {
+                    Accelerometer.Default.Stop();
+                    Accelerometer.Default.ReadingChanged -= Accelerometer_ReadingChanged;
+                    WalkButtonText = "Start Walk";
+                }
+            }
+        }
+
+        private void Accelerometer_ReadingChanged(object sender, AccelerometerChangedEventArgs e)
+        {
+            var data = e.Reading;
+            double simpleMovement = Math.Abs(data.Acceleration.X) + 
+                                    Math.Abs(data.Acceleration.Y) + 
+                                    Math.Abs(data.Acceleration.Z);
+
+            if (simpleMovement > 1.5) 
+            {
+                _currentSteps += 1; 
+                
+                if (_currentSteps > 10000) 
+                {
+                    _currentSteps = 10000; 
+                }
+                
+                StepCountDisplay = $"{_currentSteps}/10,000";
+            }
+        }
 
 }

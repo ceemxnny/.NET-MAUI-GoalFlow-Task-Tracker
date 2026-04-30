@@ -31,7 +31,7 @@
                FontSize="24" 
                FontAttributes="Bold"
                TranslationY="-75"
-               HorizontalOptions="Center" 
+               HorizontalOptions="Center"  
                Margin="0,0,0,50"/>
 
         <Button Grid.Row="4" 

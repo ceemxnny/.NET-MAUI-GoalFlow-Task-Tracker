@@ -27,3 +27,9 @@ This app actively uses native mobile hardware features via the `Microsoft.Maui.D
    Instead of relying on standard UI buttons, the app reads movement data from the device's accelerometer. It calculates the total G-force of the device to detect the physical "jolt" of a user taking a step, updating the pedometer UI in real-time.
 2. **Haptic Feedback(Doing):**
    Utilizes the device's native vibration motor. When a user toggles a daily task as "completed," the app triggers a physical haptic click, confirming the UI interaction.
+
+## GoalFlow App Wireframe Design:
+<img width="984" height="657" alt="Screenshot 2026-04-30 at 05 39 02" src="https://github.com/user-attachments/assets/a8d4114e-3148-4b6f-9518-a6abf9e89ee8" />
+
+<img width="945" height="655" alt="Screenshot 2026-04-30 at 05 36 58" src="https://github.com/user-attachments/assets/056135a8-32bd-409f-aee4-44c5b11a19d6" />
+

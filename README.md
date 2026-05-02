@@ -9,10 +9,10 @@
 This is a cross-platform mobile application built using .NET MAUI. It serves as an efficient Task and Habit Tracker designed to help users manage their daily routines. The app goes beyond a simple to do list by integrating directly with native device hardware to track user's physical activity and provide physical feedback, ensuring a vert interactive user experience.
 
 ## Brief Development Plan (Feature Roadmap)
-* **Dashboard (Completed):** A dynamic task list with interactive checkboxes and a real-time hardware step counter.
-* **Journal (Planned):**
+* **Task Dashboard & Steps(Completed):** A dynamic task list with interactive checkboxes and a real-time hardware step counter.
+* **Security Locked Journal (Planned):**
   A private notes section secured by the device's biometric sensors alongside geocoding for users to tag their locations in their journal(FaceID/Fingerprint).
-* **Location Alerts (Planned):** Integration of notifications which activate once the user completes a task.
+* **App Notifications (Planned):** Integration of notifications which activate once the user completes a task.
 * **Settings & Profile (Planned):** User configuration and customization pages.
 
 ## Technical Architecture

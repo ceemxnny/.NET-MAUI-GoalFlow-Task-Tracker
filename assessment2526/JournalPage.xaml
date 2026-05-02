@@ -5,12 +5,97 @@
              Title="Journal"
              BackgroundColor="#5A5A5A">
 
+<Grid Padding="20">
+
+        <!-- Locked Screen State              -->
+        <VerticalStackLayout x:Name="LockedView" 
+                             VerticalOptions="Center" 
+                             Spacing="30">
+
+            <Image Source="padlock.png" 
+                   HeightRequest="150" 
+                   HorizontalOptions="Center" />
+
+            <Frame BackgroundColor="White"
+                   CornerRadius="30"
+                   Padding="25"
+                   HasShadow="True"
+                   BorderColor="Transparent">
+                
+                <VerticalStackLayout Spacing="20">
+                    
+                    <Label Text="Private Journal Locked,&#10;Please use biometrics or&#10;enter password to unlock"
+                           TextColor="Black"
+                           FontSize="16"
+                           HorizontalTextAlignment="Center"
+                           FontFamily="monospace" />
+                    
+                    <Frame BackgroundColor="#B87373"
+                           CornerRadius="15"
+                           Padding="10,0"
+                           BorderColor="Black">
+                           
+                        <Entry x:Name="PasswordEntry"
+                               Placeholder="********"
+                               IsPassword="True"
+                               TextColor="Black"
+                               PlaceholderColor="DarkGray"
+                               HorizontalTextAlignment="Center"
+                               FontFamily="monospace"
+                               FontAttributes="Bold" />
+                    </Frame>
+                    
+                    <!-- Temporary test unlock button-->
+                    <Button Text="Unlock" 
+                        BackgroundColor="#B22222" 
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        CornerRadius="10"
+                        Clicked="OnUnlockClicked" />
+                </VerticalStackLayout>
+            </Frame>
+        </VerticalStackLayout>
 
 
-    <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
-        <Label Text="Journal Page Skeleton"
-               TextColor="White"
-               FontSize="24" />
-    </VerticalStackLayout>
+        <!-- Unlocked Screen State  -->
+        <Frame x:Name="UnlockedView"
+               BackgroundColor="White"
+               CornerRadius="20"
+               Padding="20"
+               HasShadow="True"
+               BorderColor="Transparent"
+               IsVisible="False" 
+               Margin="0,20,0,20">
+
+    <Grid RowDefinitions="Auto, *, Auto">
+
+                <Label Grid.Row="0"
+                       Text="Private Journal Notes:"
+                       TextColor="#B22222"
+                       FontSize="24"
+                       FontAttributes="Bold"
+                       FontFamily="monospace"
+                       Margin="0,0,0,15" />
+
+                <Editor Grid.Row="1"
+                        Placeholder="Start writing your entry..."
+                        TextColor="Black"
+                        PlaceholderColor="Gray"
+                        FontSize="16"
+                        FontFamily="monospace"
+                        AutoSize="TextChanges" />
+
+                <Button Grid.Row="2"
+                        Text="Lock Journal"
+                        BackgroundColor="DarkGray"
+                        TextColor="White"
+                        CornerRadius="10"
+                        Margin="0,15,0,0"
+                        Clicked="OnLockClicked" />
+            </Grid>
+        </Frame>
+
+    </Grid>
+
 
 </ContentPage>

@@ -1,16 +1,172 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:assessment2526.ViewModels"
              x:Class="assessment2526.ProfilePage"
              Title="Profile"
-             BackgroundColor="#9E9E9E">
+             BackgroundColor="#5A5A5A">
 
+    <ContentPage.BindingContext>
+        <viewmodels:ProfileViewModel />
+    </ContentPage.BindingContext>
 
-    <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
-        <Label Text="Profile Page Skeleton"
-               TextColor="White"
-               FontSize="24" />
+    <VerticalStackLayout Padding="20" Spacing="20" VerticalOptions="Center" Margin="0,-60,0,0">
+
+        <Border Stroke="#B22222" 
+                StrokeThickness="3" 
+                StrokeShape="RoundRectangle 100" 
+                HeightRequest="250" 
+                WidthRequest="250" 
+                HorizontalOptions="Center"
+                BackgroundColor="Transparent">
+            <Image Source="{Binding ProfileImage}" 
+                   Aspect="AspectFill" />
+        </Border>
+
+        <!-- 2. The Main White Card -->
+        <Border BackgroundColor="White" 
+                Stroke="Transparent" 
+                StrokeShape="RoundRectangle 30" 
+                Padding="20, 30, 20, 20"
+                Margin="10, 0">
+            
+            <VerticalStackLayout Spacing="20">
+                
+                <!-- Name -->
+                <Label Text="{Binding FullName}" 
+                       TextColor="Black" 
+                       FontSize="22" 
+                       FontFamily="monospace"
+                       FontAttributes="Bold" 
+                       HorizontalOptions="Center" 
+                       Margin="0,0,0,10"/>
+
+                <!-- 3. The Data Rows (Using a Grid for perfect alignment) -->
+                <!-- First row: Auto height. Second row: Auto height. etc. -->
+                <Grid RowDefinitions="Auto, Auto, Auto" 
+                      ColumnDefinitions="*, 1.5*" 
+                      RowSpacing="15" 
+                      ColumnSpacing="15">
+
+                    <!-- ROW 1: Username -->
+                    <Border Grid.Row="0" Grid.Column="0" 
+                        BackgroundColor="#B87373" 
+                        Stroke="#8B0000" 
+                        StrokeThickness="2" 
+                        StrokeShape="RoundRectangle 20" 
+                        Padding="10">
+                        
+                        <Label Text="Username" 
+                            TextColor="Black" 
+                            FontFamily="monospace" 
+                            FontAttributes="Bold" 
+                            HorizontalOptions="Center" 
+                            VerticalOptions="Center"/>
+                    </Border>
+
+                    <Border Grid.Row="0" Grid.Column="1" 
+                        BackgroundColor="#E0E0E0" 
+                        Stroke="#B22222" 
+                        StrokeThickness="2" 
+                        StrokeShape="RoundRectangle 20" 
+                        Padding="10">
+
+                        <Label Text="{Binding Username}" 
+                            TextColor="Black" 
+                            FontFamily="monospace" 
+                            FontAttributes="Bold" 
+                            HorizontalOptions="Center" 
+                            VerticalOptions="Center"/>
+                    </Border>
+
+                    <!-- ROW 2: User ID -->
+                    <Border Grid.Row="1" Grid.Column="0" 
+                        BackgroundColor="#B87373" 
+                        Stroke="#8B0000" 
+                        StrokeThickness="2" 
+                        StrokeShape="RoundRectangle 20" 
+                        Padding="10">
+
+                        <Label Text="User ID" 
+                            TextColor="Black" 
+                            FontFamily="monospace" 
+                            FontAttributes="Bold" 
+                            HorizontalOptions="Center" 
+                            VerticalOptions="Center"/>
+                    </Border>
+
+                    <Border Grid.Row="1" Grid.Column="1" 
+                        BackgroundColor="#E0E0E0" 
+                        Stroke="#B22222" 
+                        StrokeThickness="2" 
+                        StrokeShape="RoundRectangle 20" 
+                        Padding="10">
+
+                        <Label Text="{Binding UserId}" 
+                            TextColor="Black" 
+                            FontFamily="monospace" 
+                            FontAttributes="Bold" 
+                            HorizontalOptions="Center" 
+                            VerticalOptions="Center"/>
+                    </Border>
+
+                    <!-- ROW 3: DOB -->
+                    <Border Grid.Row="2" Grid.Column="0" 
+                        BackgroundColor="#B87373" 
+                        Stroke="#8B0000" 
+                        StrokeThickness="2" 
+                        StrokeShape="RoundRectangle 20" 
+                        Padding="10">
+
+                        <Label Text="DOB" 
+                            TextColor="Black" 
+                            FontFamily="monospace" 
+                            FontAttributes="Bold" 
+                            HorizontalOptions="Center" 
+                            VerticalOptions="Center"/>
+                    </Border>
+
+                    <Border Grid.Row="2" Grid.Column="1" 
+                        BackgroundColor="#E0E0E0" 
+                        Stroke="#B22222" 
+                        StrokeThickness="2" 
+                        StrokeShape="RoundRectangle 20" 
+                        Padding="10">
+
+                        <Label Text="{Binding DateOfBirth}" 
+                            TextColor="Black" 
+                            FontFamily="monospace" 
+                            FontAttributes="Bold" 
+                            HorizontalOptions="Center" 
+                            VerticalOptions="Center"/>
+                    </Border>
+
+                </Grid>
+
+                <!-- 4. Social Icons -->
+                <!-- Note: You will need to add insta_icon.png, x_icon.png, and fb_icon.png to your Images folder -->
+                <HorizontalStackLayout HorizontalOptions="Center" Spacing="20" Margin="0, 20, 0, 10">
+                    <Image Source="instagram.png" 
+                            HeightRequest="45" 
+                            WidthRequest="45" />
+                    <Image Source="x.png" 
+                            HeightRequest="45" 
+                            WidthRequest="45" />
+                    <Image Source="facebook.png" 
+                            HeightRequest="45" 
+                            WidthRequest="45" />
+                </HorizontalStackLayout>
+
+                <!-- 5. Joined Date -->
+                <Label Text="{Binding JoinDate}" 
+                       TextColor="Black" 
+                       FontSize="12" 
+                       FontFamily="monospace"
+                       FontAttributes="Bold" 
+                       HorizontalOptions="Center" />
+
+            </VerticalStackLayout>
+        </Border>
+
     </VerticalStackLayout>
-
-    
 </ContentPage>

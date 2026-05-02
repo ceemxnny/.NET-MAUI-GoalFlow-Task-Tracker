@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="assessment2526.JournalPage"
              Title="Journal"
-             BackgroundColor="#9E9E9E">
+             BackgroundColor="#5A5A5A">
 
 
 

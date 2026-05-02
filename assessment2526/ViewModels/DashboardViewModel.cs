@@ -15,6 +15,9 @@ public class DashboardViewModel : BaseViewModel
     public ICommand ToggleTrackingCommand { get; }
 
     private int _currentSteps = 0;
+        
+    private DateTime _lastStepTime = DateTime.MinValue;
+    private double _stepThreshold = 1.3;
     private string _stepCountDisplay;
     public string StepCountDisplay
     {
@@ -104,23 +107,26 @@ public class DashboardViewModel : BaseViewModel
         }
 
         private void Accelerometer_ReadingChanged(object sender, AccelerometerChangedEventArgs e)
-        {
-            var data = e.Reading;
-            double simpleMovement = Math.Abs(data.Acceleration.X) + 
-                                    Math.Abs(data.Acceleration.Y) + 
-                                    Math.Abs(data.Acceleration.Z);
+{
+    var data = e.Reading;
+    
+    double magnitude = Math.Sqrt(data.Acceleration.X * data.Acceleration.X + 
+                                 data.Acceleration.Y * data.Acceleration.Y + 
+                                 data.Acceleration.Z * data.Acceleration.Z);
 
-            if (simpleMovement > 1.5) 
-            {
-                _currentSteps += 1; 
-                
-                if (_currentSteps > 10000) 
-                {
-                    _currentSteps = 10000; 
-                }
-                
-                StepCountDisplay = $"{_currentSteps}/10,000";
-            }
+    if (magnitude > _stepThreshold && (DateTime.Now - _lastStepTime).TotalMilliseconds > 300) 
+    {
+        _currentSteps += 1; 
+        
+        if (_currentSteps > 10000) 
+        {
+            _currentSteps = 10000; 
         }
+        
+        StepCountDisplay = $"{_currentSteps}/10,000";
+        
+        _lastStepTime = DateTime.Now;
+    }
+}
 
 }

@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:assessment2526.ViewModels"
              x:Class="assessment2526.JournalPage"
              Title="Journal"
              BackgroundColor="#5A5A5A">
 
+    <ContentPage.BindingContext>
+        <viewmodels:JournalViewModel />
+    </ContentPage.BindingContext>
+
 <Grid Padding="20">
 
         <!-- Locked Screen State              -->
-        <VerticalStackLayout x:Name="LockedView" 
+        <VerticalStackLayout IsVisible="{Binding IsLocked}"                             
                              VerticalOptions="Center" 
                              Spacing="30">
 
@@ -39,6 +44,7 @@
                                Placeholder="********"
                                IsPassword="True"
                                TextColor="Black"
+                               Text="{Binding PasswordInput}"
                                PlaceholderColor="DarkGray"
                                HorizontalTextAlignment="Center"
                                FontFamily="monospace"
@@ -47,11 +53,11 @@
                     
                     <!-- Temporary test unlock button-->
                     <Button Text="Unlock" 
+                        Command="{Binding UnlockCommand}"
                         BackgroundColor="#B22222" 
                         TextColor="White"
                         FontAttributes="Bold"
-                        CornerRadius="10"
-                        Clicked="OnUnlockClicked" />
+                        CornerRadius="10"/>
                 </VerticalStackLayout>
             </Frame>
         </VerticalStackLayout>
@@ -64,7 +70,7 @@
                Padding="20"
                HasShadow="True"
                BorderColor="Transparent"
-               IsVisible="False" 
+               IsVisible="{Binding IsUnlocked}" 
                Margin="0,20,0,20">
 
     <Grid RowDefinitions="Auto, *, Auto">
@@ -86,12 +92,12 @@
                         AutoSize="TextChanges" />
 
                 <Button Grid.Row="2"
+                        Command="{Binding LockCommand}"
                         Text="Lock Journal"
                         BackgroundColor="DarkGray"
                         TextColor="White"
                         CornerRadius="10"
-                        Margin="0,15,0,0"
-                        Clicked="OnLockClicked" />
+                        Margin="0,15,0,0"/>
             </Grid>
         </Frame>
 

@@ -32,5 +32,7 @@
 	<string>We need FaceID to securely unlock your private journal.</string>
 	<key>NSCameraUsageDescription</key>
     <string>This app needs access to the camera to take photos for your journal entries.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>This app needs access to your location to show where you are walking.</string>
 </dict>
 </plist>

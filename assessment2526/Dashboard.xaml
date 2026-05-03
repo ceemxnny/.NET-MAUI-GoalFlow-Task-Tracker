@@ -9,6 +9,7 @@
              x:Class="assessment2526.Dashboard"
              Title="Dashboard"
              BackgroundColor="{AppThemeBinding Light=#E0E0E0, Dark=#5A5A5A}">
+             
 
              <ContentPage.Resources>
                 <ResourceDictionary>
@@ -19,6 +20,7 @@
              
 
     <ScrollView VerticalScrollBarVisibility="Never">
+        
         <VerticalStackLayout Spacing="20"
                 Padding="20, 40, 20, 20">
 

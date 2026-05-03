@@ -8,7 +8,7 @@
              x:DataType="viewmodels:DashboardViewModel"
              x:Class="assessment2526.Dashboard"
              Title="Dashboard"
-             BackgroundColor="#9E9E9E">
+             BackgroundColor="{AppThemeBinding Light=#E0E0E0, Dark=#5A5A5A}">
 
              <ContentPage.Resources>
                 <ResourceDictionary>

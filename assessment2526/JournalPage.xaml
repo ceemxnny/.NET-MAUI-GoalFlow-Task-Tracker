@@ -4,7 +4,7 @@
              xmlns:viewmodels="clr-namespace:assessment2526.ViewModels"
              x:Class="assessment2526.JournalPage"
              Title="Journal"
-             BackgroundColor="#5A5A5A">
+             BackgroundColor="{AppThemeBinding Light=#E0E0E0, Dark=#5A5A5A}">
 
     <ContentPage.BindingContext>
         <viewmodels:JournalViewModel />
@@ -64,16 +64,16 @@
 
 
         <!-- Unlocked Screen State  -->
-        <Frame x:Name="UnlockedView"
-               BackgroundColor="White"
-               CornerRadius="20"
-               Padding="20"
-               HasShadow="True"
-               BorderColor="Transparent"
-               IsVisible="{Binding IsUnlocked}" 
-               Margin="0,20,0,20">
+    <Frame x:Name="UnlockedView"
+            BackgroundColor="White"
+            CornerRadius="20"
+            Padding="20"
+            HasShadow="True"
+            BorderColor="Transparent"
+            IsVisible="{Binding IsUnlocked}" 
+            Margin="0,20,0,20">
 
-    <Grid RowDefinitions="Auto, *, Auto">
+    <Grid RowDefinitions="Auto, *, Auto, Auto">
 
                 <Label Grid.Row="0"
                        Text="Private Journal Notes:"
@@ -84,12 +84,40 @@
                        Margin="0,0,0,15" />
 
                 <Editor Grid.Row="1"
+                        Text="{Binding JournalText, Mode=TwoWay}"
                         Placeholder="Start writing your entry..."
                         TextColor="Black"
                         PlaceholderColor="Gray"
                         FontSize="16"
                         FontFamily="monospace"
                         AutoSize="TextChanges" />
+
+                        <!-- Row 2: NEW Captured Photo Display -->
+                <Image Grid.Row="2"
+                       Source="{Binding JournalImagePath}" 
+                       HeightRequest="150" 
+                       Aspect="AspectFit" 
+                       Margin="0, 10" />
+
+                <Grid Grid.Row="3" ColumnDefinitions="*, *" RowDefinitions="Auto, Auto" ColumnSpacing="10" RowSpacing="10" Margin="0,15,0,0">
+                    
+                    <Button Grid.Row="0" Grid.Column="0"
+                            Text="Save" 
+                            Command="{Binding SaveEntryCommand}" 
+                            BackgroundColor="#B22222" 
+                            TextColor="White" 
+                            FontFamily="monospace"
+                            FontAttributes="Bold"
+                            CornerRadius="10" />
+
+                    <Button Grid.Row="0" Grid.Column="1"
+                            Text="Take Photo" 
+                            Command="{Binding TakePhotoCommand}" 
+                            BackgroundColor="#5A5A5A" 
+                            TextColor="White" 
+                            FontFamily="monospace"
+                            FontAttributes="Bold"
+                            CornerRadius="10" />
 
                 <Button Grid.Row="2"
                         Command="{Binding LockCommand}"
@@ -98,6 +126,7 @@
                         TextColor="White"
                         CornerRadius="10"
                         Margin="0,15,0,0"/>
+            </Grid>
             </Grid>
         </Frame>
 

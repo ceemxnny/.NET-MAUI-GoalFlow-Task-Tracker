@@ -1,4 +1,5 @@
 namespace assessment2526.ViewModels;
+using System.Windows.Input;
 
 public class ProfileViewModel : BaseViewModel
 {
@@ -42,5 +43,12 @@ public class ProfileViewModel : BaseViewModel
     {
         get => _joinDate;
         set { _joinDate = value; OnPropertyChanged(); }
+    }
+
+    public ICommand OpenLinkCommand { get; }
+
+    public ProfileViewModel()
+    {
+        OpenLinkCommand = new Command<string>(async (url) => await Launcher.Default.OpenAsync(url));
     }
 }

@@ -30,5 +30,7 @@
 	<string>Assets.xcassets/appicon.appiconset</string>
 	<key>NSFaceIDUsageDescription</key>
 	<string>We need FaceID to securely unlock your private journal.</string>
+	<key>NSCameraUsageDescription</key>
+    <string>This app needs access to the camera to take photos for your journal entries.</string>
 </dict>
 </plist>

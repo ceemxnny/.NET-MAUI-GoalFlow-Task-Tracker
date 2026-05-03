@@ -2,12 +2,12 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="assessment2526.MainPage"
-             Title="Home">
+             Title="Home"
+             BackgroundColor="{AppThemeBinding Light=#E0E0E0, Dark=#5A5A5A}">
 
 
         <Grid RowDefinitions="Auto, Auto, Auto, Auto, *" 
-        Padding="40, 40, 30, 30" 
-        BackgroundColor="{StaticResource PageGrey}">
+        Padding="40, 40, 30, 30" >
         
         <VerticalStackLayout Grid.Row="1" Spacing="5" HorizontalOptions="Center">
         <Image Source="title.png" 
@@ -27,7 +27,7 @@
 
         <Label Grid.Row="3" 
                Text="Hello Colin, Welcome Back." 
-               TextColor="White" 
+               TextColor="{AppThemeBinding Light=Black, Dark=White}"
                FontSize="24" 
                FontAttributes="Bold"
                TranslationY="-75"

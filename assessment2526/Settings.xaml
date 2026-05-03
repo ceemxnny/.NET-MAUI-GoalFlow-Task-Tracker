@@ -1,14 +1,74 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:assessment2526.ViewModels"
              x:Class="assessment2526.Settings"
              Title="Settings"
-             BackgroundColor="#9E9E9E">
+             BackgroundColor="{AppThemeBinding Light=#E0E0E0, Dark=#5A5A5A}">
 
-    <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
-        <Label Text="Settings Page Skeleton"
-               TextColor="White"
-               FontSize="24" />
+    <ContentPage.BindingContext>
+        <viewmodels:SettingsViewModel />
+    </ContentPage.BindingContext>
+
+    <VerticalStackLayout Padding="20" Spacing="20">
+        
+        <Label Text="App Settings" 
+            FontSize="28" 
+            FontAttributes="Bold" 
+            HorizontalOptions="Center" 
+            Margin="0,0,0,20"/>
+
+        <Border BackgroundColor="{AppThemeBinding Light=White, Dark=#333333}" 
+            Stroke="Transparent" 
+            StrokeShape="RoundRectangle 15" 
+            Padding="20">
+
+            <Grid ColumnDefinitions="*, Auto">
+
+                <VerticalStackLayout Grid.Column="0" 
+                    VerticalOptions="Center">
+
+                    <Label Text="Dark Mode" 
+                        FontSize="18" 
+                        FontAttributes="Bold" />
+
+                    <Label Text="Toggle high-contrast appearance (Accessibility)" 
+                        FontSize="12" 
+                        TextColor="Gray" />
+                </VerticalStackLayout>
+                
+                <Switch Grid.Column="1" 
+                    IsToggled="{Binding IsDarkMode}" 
+                    OnColor="#B22222" />
+            </Grid>
+        </Border>
+
+        <Border BackgroundColor="{AppThemeBinding Light=White, Dark=#333333}" 
+            Stroke="Transparent" 
+            StrokeShape="RoundRectangle 15" 
+            Padding="20">
+
+            <Grid ColumnDefinitions="*, Auto">
+
+                <VerticalStackLayout Grid.Column="0" 
+                    VerticalOptions="Center">
+
+                    <Label Text="Clear App Data" 
+                        FontSize="18" 
+                        FontAttributes="Bold" />
+
+                    <Label Text="Wipe all tasks and journal entries" 
+                        FontSize="12" 
+                        TextColor="Gray" />
+
+                </VerticalStackLayout>
+                
+                <Button Grid.Column="1" 
+                    Text="Delete" 
+                    BackgroundColor="#B22222" 
+                    TextColor="White" 
+                    Command="{Binding ClearDataCommand}" />
+            </Grid>
+        </Border>
+
     </VerticalStackLayout>
-
 </ContentPage>

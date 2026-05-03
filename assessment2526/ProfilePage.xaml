@@ -4,7 +4,7 @@
              xmlns:viewmodels="clr-namespace:assessment2526.ViewModels"
              x:Class="assessment2526.ProfilePage"
              Title="Profile"
-             BackgroundColor="#5A5A5A">
+            BackgroundColor="{AppThemeBinding Light=#E0E0E0, Dark=#5A5A5A}">
 
     <ContentPage.BindingContext>
         <viewmodels:ProfileViewModel />
@@ -23,7 +23,6 @@
                    Aspect="AspectFill" />
         </Border>
 
-        <!-- 2. The Main White Card -->
         <Border BackgroundColor="White" 
                 Stroke="Transparent" 
                 StrokeShape="RoundRectangle 30" 
@@ -32,7 +31,6 @@
             
             <VerticalStackLayout Spacing="20">
                 
-                <!-- Name -->
                 <Label Text="{Binding FullName}" 
                        TextColor="Black" 
                        FontSize="22" 
@@ -41,14 +39,12 @@
                        HorizontalOptions="Center" 
                        Margin="0,0,0,10"/>
 
-                <!-- 3. The Data Rows (Using a Grid for perfect alignment) -->
-                <!-- First row: Auto height. Second row: Auto height. etc. -->
                 <Grid RowDefinitions="Auto, Auto, Auto" 
                       ColumnDefinitions="*, 1.5*" 
                       RowSpacing="15" 
                       ColumnSpacing="15">
 
-                    <!-- ROW 1: Username -->
+
                     <Border Grid.Row="0" Grid.Column="0" 
                         BackgroundColor="#B87373" 
                         Stroke="#8B0000" 
@@ -79,7 +75,6 @@
                             VerticalOptions="Center"/>
                     </Border>
 
-                    <!-- ROW 2: User ID -->
                     <Border Grid.Row="1" Grid.Column="0" 
                         BackgroundColor="#B87373" 
                         Stroke="#8B0000" 
@@ -110,7 +105,6 @@
                             VerticalOptions="Center"/>
                     </Border>
 
-                    <!-- ROW 3: DOB -->
                     <Border Grid.Row="2" Grid.Column="0" 
                         BackgroundColor="#B87373" 
                         Stroke="#8B0000" 
@@ -143,21 +137,33 @@
 
                 </Grid>
 
-                <!-- 4. Social Icons -->
-                <!-- Note: You will need to add insta_icon.png, x_icon.png, and fb_icon.png to your Images folder -->
                 <HorizontalStackLayout HorizontalOptions="Center" Spacing="20" Margin="0, 20, 0, 10">
-                    <Image Source="instagram.png" 
-                            HeightRequest="45" 
-                            WidthRequest="45" />
-                    <Image Source="x.png" 
-                            HeightRequest="45" 
-                            WidthRequest="45" />
-                    <Image Source="facebook.png" 
-                            HeightRequest="45" 
-                            WidthRequest="45" />
+                    <Image Source="instagram.png" HeightRequest="45" WidthRequest="45">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer 
+                                Command="{Binding OpenLinkCommand}" 
+                                CommandParameter="https://www.instagram.com" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                            
+                    <Image Source="x.png" HeightRequest="45" WidthRequest="45">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer 
+                                Command="{Binding OpenLinkCommand}" 
+                                CommandParameter="https://x.com/i/flow/login" />
+                        </Image.GestureRecognizers>
+                    </Image>
+
+                    <Image Source="facebook.png" HeightRequest="45" WidthRequest="45">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer 
+                                Command="{Binding OpenLinkCommand}" 
+                                CommandParameter="https://www.facebook.com/login" />
+                        </Image.GestureRecognizers>
+                    </Image>
+
                 </HorizontalStackLayout>
 
-                <!-- 5. Joined Date -->
                 <Label Text="{Binding JoinDate}" 
                        TextColor="Black" 
                        FontSize="12" 

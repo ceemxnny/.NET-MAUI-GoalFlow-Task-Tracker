@@ -11,7 +11,7 @@
 
         private async void OnEnterClicked(object sender, EventArgs e)
         {
-             await Navigation.PushAsync(new Dashboard());       
+             await Shell.Current.GoToAsync("//Dashboard");     
         }
     private async void OnBackClicked(object sender, EventArgs e)
     {

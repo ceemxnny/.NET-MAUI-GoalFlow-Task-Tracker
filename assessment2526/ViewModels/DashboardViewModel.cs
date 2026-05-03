@@ -52,7 +52,8 @@ public class DashboardViewModel : BaseViewModel
         ToggleTaskCommand = new Command<GoalItem>(ToggleTask);
         AddTaskCommand = new Command(AddNewTask);
         DeleteTaskCommand = new Command<GoalItem>(DeleteTask);
-        StepCountDisplay = "0/10,000";
+        _currentSteps = Preferences.Default.Get("CurrentSteps", 0);
+        StepCountDisplay = $"{_currentSteps}/10,000";
         ToggleTrackingCommand = new Command(ToggleAccelerometer);
     }
     private void ToggleTask(GoalItem task)
@@ -106,8 +107,8 @@ public class DashboardViewModel : BaseViewModel
             }
         }
 
-        private void Accelerometer_ReadingChanged(object sender, AccelerometerChangedEventArgs e)
-{
+    private void Accelerometer_ReadingChanged(object sender, AccelerometerChangedEventArgs e)
+    {
     var data = e.Reading;
     
     double magnitude = Math.Sqrt(data.Acceleration.X * data.Acceleration.X + 
@@ -124,6 +125,7 @@ public class DashboardViewModel : BaseViewModel
         }
         
         StepCountDisplay = $"{_currentSteps}/10,000";
+        Preferences.Default.Set("CurrentSteps", _currentSteps);
         
         _lastStepTime = DateTime.Now;
     }

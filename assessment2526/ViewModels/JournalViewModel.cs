@@ -45,6 +45,7 @@ public class JournalViewModel : BaseViewModel
     public ICommand LockCommand { get; }
     public ICommand SaveEntryCommand { get; }
     public ICommand TakePhotoCommand { get; }
+    public ICommand DeletePhotoCommand { get; }
 
     public JournalViewModel()
     {
@@ -55,6 +56,7 @@ public class JournalViewModel : BaseViewModel
         SaveEntryCommand = new Command(async () => await ExecuteSaveEntry());
         TakePhotoCommand = new Command(async () => await ExecuteTakePhoto());
         JournalText = Preferences.Default.Get("SavedJournal", "No entry found.");
+        DeletePhotoCommand = new Command(ExecuteDeletePhoto);
     }
     private async Task ExecuteUnlock()
     {
@@ -122,4 +124,15 @@ public class JournalViewModel : BaseViewModel
             await Application.Current.MainPage.DisplayAlert("Error", "Camera not supported.", "OK");
         }
     }
+
+    private void ExecuteDeletePhoto()
+        {
+            JournalImagePath = string.Empty;
+            Preferences.Default.Remove("SavedJournalImage");
+            if (HapticFeedback.Default.IsSupported)
+            {
+                HapticFeedback.Default.Perform(HapticFeedbackType.Click);
+            }
+        }
+
 }

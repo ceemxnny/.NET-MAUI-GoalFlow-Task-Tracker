@@ -19,7 +19,8 @@
         </Tab>
 
         <Tab Title="Dashboard" Icon="dashboard.png">
-            <ShellContent ContentTemplate="{DataTemplate local:Dashboard}" />
+            <ShellContent ContentTemplate="{DataTemplate local:Dashboard}" 
+                Route="Dashboard"/>
         </Tab>
 
         <Tab Title="Journal" Icon="journal.png">

@@ -1,6 +1,7 @@
 using System.Windows.Input;
 using Plugin.Fingerprint;
 using Plugin.Fingerprint.Abstractions;
+using Microsoft.Maui.Media;
 
 namespace assessment2526.ViewModels;
 public class JournalViewModel : BaseViewModel
@@ -46,6 +47,8 @@ public class JournalViewModel : BaseViewModel
     public ICommand SaveEntryCommand { get; }
     public ICommand TakePhotoCommand { get; }
     public ICommand DeletePhotoCommand { get; }
+    public ICommand ReadAloudCommand { get; }
+    
 
     public JournalViewModel()
     {
@@ -57,6 +60,7 @@ public class JournalViewModel : BaseViewModel
         TakePhotoCommand = new Command(async () => await ExecuteTakePhoto());
         JournalText = Preferences.Default.Get("SavedJournal", "No entry found.");
         DeletePhotoCommand = new Command(ExecuteDeletePhoto);
+        ReadAloudCommand = new Command(async () => await ExecuteReadAloud());
     }
     private async Task ExecuteUnlock()
     {
@@ -134,5 +138,17 @@ public class JournalViewModel : BaseViewModel
                 HapticFeedback.Default.Perform(HapticFeedbackType.Click);
             }
         }
+
+        private async Task ExecuteReadAloud()
+    {
+        if (!string.IsNullOrWhiteSpace(JournalText))
+        {
+            await TextToSpeech.Default.SpeakAsync(JournalText);
+        }
+        else
+        {
+            await Application.Current.MainPage.DisplayAlert("Oops", "There is nothing written to read out loud.", "OK");
+        }
+    }
 
 }

@@ -115,7 +115,7 @@
                     <Button Grid.Row="0" Grid.Column="0"
                             Text="Save" 
                             Command="{Binding SaveEntryCommand}" 
-                            BackgroundColor="#B22222" 
+                            BackgroundColor="DarkGreen" 
                             TextColor="White" 
                             FontFamily="monospace"
                             FontAttributes="Bold"
@@ -130,13 +130,22 @@
                             FontAttributes="Bold"
                             CornerRadius="10" />
 
-                <Button Grid.Row="2"
+                    <Button Grid.Row="1" Grid.Column="1"
+                            Text="Read Entry Aloud" 
+                            Command="{Binding ReadAloudCommand}" 
+                            BackgroundColor="#4A90E2" 
+                            TextColor="White" 
+                            FontFamily="monospace"
+                            FontAttributes="Bold"
+                            CornerRadius="10" />
+
+                    <Button Grid.Row="1"
                         Command="{Binding LockCommand}"
                         Text="Lock Journal"
-                        BackgroundColor="DarkGray"
+                        BackgroundColor="#B22222"
                         TextColor="White"
                         CornerRadius="10"
-                        Margin="0,15,0,0"/>
+                        />
             </Grid>
             </Grid>
         </Frame>

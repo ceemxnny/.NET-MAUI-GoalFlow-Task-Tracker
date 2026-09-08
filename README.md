@@ -1,5 +1,3 @@
-# Mobile Computing Assessment 25/26
-
 # GoalFlow - Task and Habit Tracker
 
 **Author:** Colin Nartey

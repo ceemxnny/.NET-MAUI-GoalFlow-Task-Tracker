@@ -1,7 +1,7 @@
 # GoalFlow - Task and Habit Tracker
 
 ## About The App
-This is a cross-platform mobile application built using .NET MAUI. It serves as an efficient Task and Habit Tracker designed to help users manage their daily routines. The app goes beyond a simple to do list by integrating directly with native device hardware to track user's physical activity and provide physical feedback, ensuring a vert interactive user experience.
+This is a cross-platform mobile application built using C# and .NET MAUI. It serves as an efficient Task and Habit Tracker designed to help users manage their daily routines. The app goes beyond a simple to do list by integrating directly with native device hardware to track user's physical activity and provide physical feedback, ensuring a very interactive user experience.
 
 ## Application Features
 * **Task Dashboard & Steps:** A dynamic task list with interactive checkboxes and a real-time hardware step counter.
@@ -17,23 +17,22 @@ This application strictly adheres to the **MVVVM** design pattern to cleanly sep
 ## Hardware Integration & Features
 This app actively uses native mobile hardware features via the `Microsoft.Maui.Devices.Sensors` API:
 
-1. **Accelerometer (Step Counter):** 
-   Instead of relying on standard UI buttons, the app reads movement data from the device's accelerometer. It calculates the total G-force of the device to detect the physical "jolt" of a user taking a step, updating the pedometer UI in real-time.
-2. **Haptic Feedback(Doing):**
+1. **Accelerometer (Step Counter):**  Instead of relying on standard UI buttons, the app reads movement data from the device's accelerometer. It calculates the total G-force of the device to detect the physical "jolt" of a user taking a step, updating the pedometer UI in real-time.
+2. **Haptic Feedback:**
    Utilizes the device's native vibration motor. When a user toggles a daily task as "completed," or when they delete a photo, the app triggers a physical haptic click, confirming the UI interaction.
 3. **Camera:**
    Allows the user to take and save photos directly inside journal entries.
-4. * **Data Persistence:** 
+4. **Data Persistence:** 
    Uses `Preferences` to save journal text, captured images, and step counts so data is not lost between sessions.
-5. * **Cross-Platform Routing:** 
+5. **Cross-Platform Routing:** 
    Custom AppShell routing implemented for seamless tab navigation.
-6. * **Form Validation:** 
+6. **Form Validation:** 
    Prevents the saving of empty journal entries and handles hardware permission denials gracefully without crashing.
-7. * **Text-to-Speech (TTS):** 
+7. **Text-to-Speech (TTS):** 
    Uses the native OS voice synthesizer to read journal entries out loud.
-8. * **Biometric Authentication (Fingerprint/FaceID):** 
+8. **Biometric Authentication (Fingerprint/FaceID):** 
    Secures the private journal.
-9. * **Location/GPS:** 
+9. **Location/GPS:** 
    Utilises the device's geolocation hardware to display the user's current position on a map.
 
 
